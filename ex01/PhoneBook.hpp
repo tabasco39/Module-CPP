@@ -10,9 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include "Contact.hpp"
+
 class PhoneBook
 {
 public:
     PhoneBook(/* args */);
     ~PhoneBook();
+    //Contact phone_books[9];
 };

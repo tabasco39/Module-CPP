@@ -14,10 +14,16 @@
 
 class Contact
 {
-private:
-    /* data */
-public:
-    Contact(/* args */);
-    ~Contact();
-    
+	public:
+		Contact(/* args */);
+		~Contact();
+		std::string	first_name;
+		std::string	last_name;
+		std::string	nick_name;
+		std::string	dark_secret;
+		void ft_add_firstname();
+		void ft_add_lastname();
+		void ft_add_nickname();
+		void ft_add_darksecret();
+		void ft_add_contact();
 };
