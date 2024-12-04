@@ -12,17 +12,22 @@ int main(void)
 	std::cout << "CHOOSE BETWEEN: ADD / SEARCH / EXIT : " << std::endl;
 	while (input != "EXIT")
 	{
-		std::cin >> input;
-		if (input == "ADD")
+		std::cout << "> ";
+		std::getline(std::cin, input);
+		if (input.empty())
+			std::cout << "COMMAND NOT FOUND\n";
+		else if (input == "ADD")
 		{
 			contact.ft_add_contact();
-			std::cout << contact.first_name << std::endl;
-			std::cout << contact.last_name << std::endl;
-			std::cout << contact.nick_name << std::endl;
-			std::cout << contact.dark_secret << std::endl;
+			if (contact.ft_check_error() == false)
+				contact.ft_add_contact();
+			repertoire.ft_add_contact(contact);
+			std::cout << "\033[32mCONTACT WAS BEEN ADDED\033[0m" << std::endl;
 		}
 		else if (input == "SEARCH")
-			std::cout << "SEARCH\n";
+		{
+			repertoire.ft_list_contacts();
+		}
 		else
 			std::cout << "COMMAND NOT FOUND\n";
 	}

@@ -6,16 +6,24 @@
 /*   By: aranaivo <aranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:37:17 by aranaivo          #+#    #+#             */
-/*   Updated: 2024/11/28 15:38:35 by aranaivo         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:05:13 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "Contact.hpp"
 
-class PhoneBook
-{
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
+#include "Contact.hpp"
+
+class PhoneBook {
 public:
-    PhoneBook(/* args */);
+    PhoneBook();
     ~PhoneBook();
-    //Contact phone_books[9];
+    int index;
+    Contact phone_books[8];
+    void    ft_add_contact(Contact ct);
+    void    ft_list_contacts();
+    void    ft_display_element(char *str);
 };
+
+#endif
