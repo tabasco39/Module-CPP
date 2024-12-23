@@ -6,12 +6,11 @@
 /*   By: aranaivo <aranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:39:52 by aranaivo          #+#    #+#             */
-/*   Updated: 2024/12/03 14:38:04 by aranaivo         ###   ########.fr       */
+/*   Updated: 2024/12/18 07:51:12 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include <cstdlib> 
 
 Contact::Contact(/* args */)
 {
@@ -51,7 +50,7 @@ void Contact::ft_add_phone_number()
     std::cout << "ENTER PHONE NUMBER : ";
     std::getline(std::cin, input);
     str = input.c_str();
-    this->phone_number = atoi(str);
+    this->phone_number = input;
     for (int i = 0; str[i]; i++)
     {
         if(!std::isdigit(str[i]))

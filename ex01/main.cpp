@@ -28,6 +28,10 @@ int main(void)
 		{
 			repertoire.ft_list_contacts();
 		}
+		else if (input == "EXIT")
+		{
+			exit(EXIT_SUCCESS);
+		}
 		else
 			std::cout << "COMMAND NOT FOUND\n";
 	}

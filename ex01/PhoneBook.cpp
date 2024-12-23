@@ -6,7 +6,7 @@
 /*   By: aranaivo <aranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:37:59 by aranaivo          #+#    #+#             */
-/*   Updated: 2024/12/03 14:38:58 by aranaivo         ###   ########.fr       */
+/*   Updated: 2024/12/18 07:48:59 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "Contact.hpp"
 #include <cstdlib>
 #include <cstring>
+#include <iomanip>
+#include <string>
 
 PhoneBook::PhoneBook(/* args */)
 {
@@ -34,38 +36,27 @@ void    PhoneBook::ft_add_contact(Contact ct)
     this->index++;
 }
 
-void    PhoneBook::ft_display_element(char *str)
+std::string truncate_value(int len, std::string value)
 {
-    int len;
-    int i;
+    std::string result;
 
-    len = strlen(str);
-    str = (char *)str;
-    if (len > 10)
+    if (value.length() > len)
     {
-        str[9] = '.';
-        for (int i = 0; str[i] != '.'; i++)
-            std::cout << str[i];
-        std::cout << "|"; 
+        result = value.substr(0, len - 2);
+        result += ".";
     }
+    else
+    {
+        result = value.length() > len ? value.substr(0, len - 2) : value;
+    }
+    return (result);
 }
 
-void    PhoneBook::ft_list_contacts()
+void    PhoneBook::ft_display_contact()
 {
-    int             i;
-    std::string     input;
 	const char*		input_char;
+    std::string     input;
 
-    i = 0;
-    while (!this->phone_books[i].dark_secret.empty())
-    {
-        std::cout << i << " | ";
-        this->ft_display_element((char *)this->phone_books[i].first_name.c_str());
-        std::cout << this->phone_books[i].last_name << " | ";
-        std::cout << this->phone_books[i].nick_name << " | ";
-        std::cout << this->phone_books[i].phone_number << std::endl;;
-        i++;
-    }
     std::cout << "\033[33mCHOOSE INDEX PLEASE: \033[0m";
     std::getline(std::cin, input);
 	input_char = input.c_str();
@@ -80,5 +71,36 @@ void    PhoneBook::ft_list_contacts()
 		std::cout << "\033[32mNICKNAME : \033[0m" << this->phone_books[std::atoi(input_char)].nick_name << std::endl;
 		std::cout << "\033[32mPHONE NUMBER : \033[0m" << this->phone_books[std::atoi(input_char)].phone_number << std::endl;
 	}
+}
 
+void    PhoneBook::ft_list_contacts()
+{
+    int             i;
+    int             len;
+    std::string     first_name;
+    std::string     last_name;
+    std::string     nick_name;
+    std::string     phone_number;
+
+    i = 0;
+    len = 10;
+    if (this->phone_books[0].first_name.empty())
+		std::cout << "\033[31m!!!NO PHONEBOOKS FOUND, PLEASE ADD.\033[0m" << std::endl;
+    else
+    {
+        while (!this->phone_books[i].dark_secret.empty())
+        {
+            first_name = truncate_value(len, this->phone_books[i].first_name);
+            last_name = truncate_value(len, this->phone_books[i].last_name);
+            nick_name = truncate_value(len, this->phone_books[i].nick_name);
+            phone_number = truncate_value(len, this->phone_books[i].phone_number);
+            std::cout << std::setw(len) << i << "|";
+            std::cout << std::setw(len) << first_name << "|";
+            std::cout << std::setw(len) << last_name << "|";
+            std::cout << std::setw(len) << nick_name << "|";
+            std::cout << std::setw(len) << phone_number << std::endl;
+            i++;
+        }
+        this->ft_display_contact();
+    }
 }

@@ -6,15 +6,15 @@
 /*   By: aranaivo <aranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:39:18 by aranaivo          #+#    #+#             */
-/*   Updated: 2024/12/03 13:48:04 by aranaivo         ###   ########.fr       */
+/*   Updated: 2024/12/18 07:51:10 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-#include "string"
 #include <limits>
+#include <cstdlib> 
 #include "iostream"
 
 class Contact
@@ -26,7 +26,7 @@ class Contact
 		std::string	last_name;
 		std::string	nick_name;
 		std::string	dark_secret;
-		int			phone_number;
+		std::string	phone_number;
 		void ft_add_firstname();
 		void ft_add_lastname();
 		void ft_add_nickname();
