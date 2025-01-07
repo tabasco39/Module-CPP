@@ -4,31 +4,38 @@
 
 Fixed::Fixed(void)
 {
-    fixed_value = 0;
     std::cout << "Default constructor called" << std::endl;
+    fixed_value = 0;
 }
 
 Fixed::Fixed(const Fixed &obj)
 {
-    fixed_value = obj.fixed_value;
     std::cout << "Copy constructor called" << std::endl;
+    *this = obj;
 }
 Fixed::Fixed(const int value)
 {
-    fixed_value = value << bit;
     std::cout << "int constructor called" << std::endl;
+    fixed_value = value * (1 << bit);
 
-}
-
-float Fixed::toFloat(void) const
-{
-    return (fixed_value / (1 << bit));
 }
 
 Fixed::Fixed(const float value)
 {
-    fixed_value = value * (1 << bit);
+    std::cout << "float constructor called" << std::endl;
+    fixed_value =  roundf(value * (1 << bit));
 }
+
+float Fixed::toFloat(void) const
+{
+    return ((float)fixed_value / (1 << bit));
+}
+
+int Fixed::toInt(void) const
+{
+    return (fixed_value / (1 << bit));
+}
+
 
 std::ostream& operator<<(std::ostream &os, const Fixed& obj)
 {
@@ -41,10 +48,10 @@ Fixed::~Fixed(void)
     std::cout << "Destructor called" << std::endl;
 }
 
-Fixed& Fixed::operator=(const Fixed& obj)
+Fixed& Fixed::operator=(Fixed const &obj)
 {
-    this->fixed_value = obj.fixed_value;
     std::cout << "Copy assignment operator called" << std::endl;
+    this->fixed_value = obj.fixed_value;
     return (*this);
 }
 
