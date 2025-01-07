@@ -9,7 +9,7 @@ int main(void)
     int     N;
 
     N = 4;
-    zombies = zombieHorde(N, "69");
+    zombies = zombieHorde(N, "test");
     for (int i = 0; i < N; i++)
         zombies[i].announce();
     delete[] zombies;
