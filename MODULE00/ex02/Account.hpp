@@ -8,7 +8,7 @@
 // ************************************************************************** //
 
 
-//#pragma once
+#pragma once
 #ifndef __ACCOUNT_H__
 #define __ACCOUNT_H__
 
@@ -34,7 +34,7 @@ public:
 
 	void	makeDeposit( int deposit );
 	bool	makeWithdrawal( int withdrawal );
-	//int		checkAmount( void ) const;
+	int		checkAmount( void ) const;
 	void	displayStatus( void ) const;
 
 

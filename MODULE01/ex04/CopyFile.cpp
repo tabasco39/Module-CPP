@@ -1,5 +1,4 @@
 #include "CopyFile.hpp"
-#include "Utils.cpp"
 
 CopyFile::CopyFile(std::string _filename, std::string _s1, std::string _s2)
 {
@@ -20,7 +19,7 @@ void CopyFile::setNewContent(std::string str)
 
 void CopyFile::getFileContent()
 {
-    std::ifstream   inputFile(filename);
+    std::ifstream   inputFile(filename.c_str());
     std::string     line;
 
     if (inputFile.is_open())
@@ -45,7 +44,7 @@ void CopyFile::copyingToNewFile()
 
     newFile = filename;
     newFile += ".replace";
-    std::ofstream outputFile(newFile);
+    std::ofstream outputFile(newFile.c_str());
 
     setNewContent(replacingWord(fileContent, s1, s2));
     if (outputFile.is_open())

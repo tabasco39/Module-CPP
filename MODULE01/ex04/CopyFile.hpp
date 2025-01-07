@@ -2,9 +2,10 @@
 #ifndef CopyFILE_HPP
 #define CopyFILE_HPP
 
-#include "string"
+#include <string>
 #include <fstream>
-#include "iostream"
+#include <cstdlib>
+#include <iostream>
 
 class CopyFile
 {
@@ -22,5 +23,6 @@ class CopyFile
         std::string filename;
         std::string newContent;
 };
+std::string replacingWord(std::string &str , std::string &s1, std::string &s2);
 
 #endif

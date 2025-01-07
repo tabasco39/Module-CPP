@@ -6,13 +6,14 @@
 /*   By: aranaivo <aranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:37:59 by aranaivo          #+#    #+#             */
-/*   Updated: 2024/12/18 07:48:59 by aranaivo         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:45:01 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 #include <cstdlib>
+#include <cctype>
 #include <cstring>
 #include <iomanip>
 #include <string>
@@ -52,6 +53,16 @@ std::string truncate_value(int len, std::string value)
     return (result);
 }
 
+int is_digit(const char *str)
+{
+    for (int i = 0; str[i]; i++)
+    {
+        if (!std::isdigit(str[i]))
+            return (EXIT_FAILURE);
+    }
+    return (EXIT_SUCCESS);
+}
+
 void    PhoneBook::ft_display_contact()
 {
 	const char*		input_char;
@@ -62,6 +73,8 @@ void    PhoneBook::ft_display_contact()
 	input_char = input.c_str();
     if (input.empty())
 		std::cout << "\033[31m!!!PLEASE, TYPE INDEX .\033[0m" << std::endl;
+    else if (is_digit(input_char) == EXIT_FAILURE)
+		std::cout << "\033[31m!!!INPUT MUST BE A DIGIT .\033[0m" << std::endl;
     else if (this->phone_books[std::atoi(input_char)].first_name.empty())
 		std::cout << "\033[31m!!!INDEX NOT VALID .\033[0m" << std::endl;
 	else
