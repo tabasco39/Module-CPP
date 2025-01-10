@@ -2,13 +2,13 @@
 
 int main(void)
 {
-    Point a(0.0, 0.0);
-    Point b(0.0, 5.0);
-    Point c(5.0, 0.0);
-    Point p(1.0 , 1.0);
+    Point a(0.0f, 0.0f);
+    Point b(0.0f, 5.0f);
+    Point c(5.0f, 0.0f);
+    Point p(1.0f , -1.0f);
 
 
-    std::cout << "-->" << p.get_X() << std::endl;
+
     if (bsp(a, b , c , p) == true)
         std::cout << "P appartient au triangle" << std::endl;
     else

@@ -12,7 +12,7 @@ public:
     Point();
     Point(float _x , float _y);
     Point(const Point& obj);
-    Point& operator=(const Point& obj);
+    Point& operator=(const Point& obj) = delete;
     float get_X();
     float get_Y();
     ~Point();
