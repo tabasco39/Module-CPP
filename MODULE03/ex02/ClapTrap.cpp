@@ -1,40 +1,5 @@
 #include "ClapTrap.hpp"
 
-std::string ClapTrap::get_name(void)
-{
-    return (name);
-}
-
-int ClapTrap::get_energy(void)
-{
-    return (energy);
-}
-
-int ClapTrap::get_hit(void)
-{
-    return (hit);
-}
-
-int ClapTrap::get_attack_damage(void)
-{
-    return (attack_dammage);
-}
-
-void ClapTrap::set_energy(int _energy)
-{
-    energy = _energy;
-}
-
-void ClapTrap::set_hit(int _hit)
-{
-    hit = _hit;
-}
-
-void ClapTrap::set_attack_damage(unsigned int _attack_dammage)
-{
-    attack_dammage = _attack_dammage;
-}
-
 void ClapTrap::attack(const std::string& target)
 {
     if (energy > 0 || hit > 0)
@@ -70,10 +35,36 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
 }
 
-ClapTrap::ClapTrap(std::string _name) : 
-    name(_name), hit(100), energy(50), attack_dammage(20)
+ClapTrap::ClapTrap()
 {
-    std::cout << "Constructor called" << std::endl;
+    hit = 10;
+    energy = 10;
+    attack_dammage = 0;
+    std::cout << "Default constructor of CLAPTRAP called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string _name) : 
+    name(_name)
+{
+    hit = 10;
+    energy = 10;
+    attack_dammage = 0;
+    std::cout << "Constructor with parameter of CLAPTRAP called" << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap& obj)
+{
+    *this = obj;
+    std::cout << "Copied Constructor of CLAPTRAP called " << std::endl; 
+}
+
+ClapTrap ClapTrap::operator=(ClapTrap& obj)
+{
+    this->name           = obj.name;
+    this->hit            = obj.hit;
+    this->energy         = obj.energy;
+    this->attack_dammage = obj.attack_dammage;
+    return (*this);
 }
 
 ClapTrap::~ClapTrap()

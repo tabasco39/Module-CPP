@@ -2,7 +2,34 @@
 
 ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
 {
-    std::cout << "Constructor of SCAVTRAP called" << std::endl;
+    hit            = 100;
+    energy         = 50;
+    attack_dammage = 20;
+    std::cout << "Constructor with parameter of SCAVTRAP called" << std::endl;
+}
+
+ScavTrap::ScavTrap(void)
+{
+    hit            = 100;
+    energy         = 50;
+    attack_dammage = 20;
+    std::cout << "Default constructor of SCAVTRAP called" << std::endl;
+
+}
+
+ScavTrap::ScavTrap(ScavTrap& obj)
+{
+    *this = obj;
+    std::cout << "Copied constructor of SCAVTRAP called" << std::endl;
+}
+
+ScavTrap ScavTrap::operator=(ScavTrap& obj)
+{
+    this->name           = obj.name;
+    this->hit            = obj.hit;
+    this->energy         = obj.energy;
+    this->attack_dammage = obj.attack_dammage;
+    return (*this);
 }
 
 ScavTrap::~ScavTrap()
@@ -17,11 +44,11 @@ void ScavTrap::guardGate()
 
 void ScavTrap::attack(const std::string& target)
 {
-    if (get_energy() > 0 || get_hit() > 0)
+    if (energy > 0 || hit > 0)
     {
-        std::cout << "ScavTrap " << get_name() << " attacks ";
-        std::cout << target << ", causing " << get_attack_damage() << " points of dammage" << std::endl;
-        set_energy(get_energy() - 1) ;
+        std::cout << "ScavTrap " << name << " attacks ";
+        std::cout << target << ", causing " << attack_dammage << " points of dammage" << std::endl;
+        energy-- ;
     }
     else
     {

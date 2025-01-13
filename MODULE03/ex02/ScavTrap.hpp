@@ -6,12 +6,15 @@
 #include "ClapTrap.hpp"
 #pragma once
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
     private:
         /* data */
     public:
+        ScavTrap(void);
         ScavTrap(std::string _name);
+        ScavTrap(ScavTrap& obj);
+        ScavTrap operator=(ScavTrap& obj);
         ~ScavTrap();
         void attack(const std::string& target);
         void guardGate();
