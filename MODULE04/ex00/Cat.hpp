@@ -11,7 +11,7 @@ class Cat : public Animal
         Cat(Cat& obj);
         Cat& operator=(Cat& obj);
         ~Cat();
-        void makeSound(void);
+        void makeSound(void) const override;
 };
 
 

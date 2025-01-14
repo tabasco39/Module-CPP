@@ -24,12 +24,12 @@ Animal::~Animal()
     std::cout << "Destructor of Animal called" << std::endl;
 }
 
-std::string Animal::getType(void)
+std::string Animal::getType(void) const
 {
     return (type);
 }
 
-void Animal::makeSound(void)
+void Animal::makeSound(void) const
 {
     std::cout << "shhhhshhhhshhh" << std::endl;
 }

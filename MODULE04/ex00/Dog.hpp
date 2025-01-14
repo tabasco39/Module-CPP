@@ -11,7 +11,7 @@ public:
     Dog(void);
     Dog(Dog& obj);
     Dog& operator=(Dog& obj);
-    void makeSound(void);
+    void makeSound(void) const override;
     ~Dog();
 };
 #endif

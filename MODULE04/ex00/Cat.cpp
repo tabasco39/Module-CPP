@@ -23,7 +23,7 @@ Cat::~Cat()
     std::cout << "Destructor of cat called" << std::endl;
 }
 
-void Cat::makeSound(void)
+void Cat::makeSound(void) const
 {
     std::cout << "miaaouuuuuuuuu!!!!" << std::endl;
 }
