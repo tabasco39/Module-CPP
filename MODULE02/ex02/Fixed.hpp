@@ -20,6 +20,8 @@ public:
     Fixed&  operator=(Fixed const &obj);
     Fixed&  operator++();
     Fixed   operator++(int);
+    Fixed&  operator--();
+    Fixed   operator--(int);
     bool    operator<(Fixed const &obj);
     bool    operator>(Fixed const &obj);
     bool    operator>=(Fixed const &obj);

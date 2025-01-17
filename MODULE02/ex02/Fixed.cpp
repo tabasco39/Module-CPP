@@ -123,6 +123,21 @@ Fixed Fixed::operator++(int)
     return (tmp);
 }
 
+Fixed& Fixed::operator--()
+{
+    --fixed_value;
+    return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed tmp;
+
+    tmp = *this;
+    --fixed_value;
+    return (tmp);
+}
+
 Fixed&  Fixed::min(Fixed &a, Fixed& b)
 {
     return (a < b) ? a : b;
