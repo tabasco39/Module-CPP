@@ -14,6 +14,8 @@ int main(void)
 	{
 		std::cout << "> ";
 		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			return (EXIT_FAILURE);
 		if (input.empty())
 			std::cout << "COMMAND NOT FOUND\n";
 		else if (input == "ADD")
@@ -35,4 +37,5 @@ int main(void)
 		else
 			std::cout << "COMMAND NOT FOUND\n";
 	}
+	return (EXIT_SUCCESS);
 }

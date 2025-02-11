@@ -28,18 +28,24 @@ void Contact::ft_add_firstname()
 {
     std::cout << "ENTER FIRSTNAME : ";
     std::getline(std::cin, this->first_name);
+    if (!std::getline(std::cin, this->first_name))
+	    exit(EXIT_FAILURE);
 }
 
 void Contact::ft_add_lastname()
 {
     std::cout << "ENTER LASTNAME : ";
     std::getline(std::cin, this->last_name);
+    if (!std::getline(std::cin, this->last_name))
+	    exit(EXIT_FAILURE);
 }
 
 void Contact::ft_add_nickname()
 {
     std::cout << "ENTER NICKNAME : ";
     std::getline(std::cin, this->nick_name);
+    if (!std::getline(std::cin, this->nick_name))
+	    exit(EXIT_FAILURE);
 }
 
 void Contact::ft_add_phone_number()
@@ -49,6 +55,8 @@ void Contact::ft_add_phone_number()
 
     std::cout << "ENTER PHONE NUMBER : ";
     std::getline(std::cin, input);
+    if (!std::getline(std::cin, input))
+	    exit(EXIT_FAILURE);
     str = input.c_str();
     this->phone_number = input;
     for (int i = 0; str[i]; i++)
@@ -66,6 +74,8 @@ void Contact::ft_add_darksecret()
 {
     std::cout << "ENTER DARKSECRET : ";
     std::getline(std::cin, this->dark_secret);
+    if (!std::getline(std::cin, this->dark_secret))
+	    exit(EXIT_FAILURE);
 }
 
 int Contact::ft_check_error()
