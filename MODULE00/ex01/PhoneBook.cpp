@@ -31,7 +31,7 @@ PhoneBook::~PhoneBook()
 
 void    PhoneBook::ft_add_contact(Contact ct)
 {
-    if (this->index >= 8)
+    if (this->index > 7)
         this->index = 0;
     this->phone_books[this->index] = ct;
     this->index++;
