@@ -1,12 +1,13 @@
-NAME = megaphone
+NAME = account
 
-SRC = megaphone.cpp \
+SRC = Account.cpp \
+	  tests.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS =  -Wall -Wextra -Werror -std=c++98
 
 all: ${NAME}
 

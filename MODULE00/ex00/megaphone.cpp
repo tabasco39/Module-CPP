@@ -6,7 +6,7 @@
 /*   By: aranaivo <aranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 09:10:48 by aranaivo          #+#    #+#             */
-/*   Updated: 2024/11/28 13:49:01 by aranaivo         ###   ########.fr       */
+/*   Updated: 2025/02/12 07:04:45 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,15 @@
 
 void ft_toupper_string(std::string *str)
 {
-	for (int i = 0; i < (*str).length(); i++)
+	for (size_t i = 0; i < (*str).length(); i++)
         (*str)[i] = toupper((*str)[i]);
 }
 
 int main(int argc, char **argv)
 {
 	std::string msg;
-	int         size;
 
 	msg = "* loud and unbearable feedback noise *\n";
-	size = msg.length();
 	if (argc <= 1)
 	{
 		ft_toupper_string(&msg);
