@@ -6,12 +6,15 @@
 
 class Harl
 {
+	private:
+		void _debug(void);
+		void _info(void);
+		void _warning(void);
+		void _error(void);
 
 	public:
-		void debug(void);
-		void info(void);
-		void warning(void);
-		void error(void);
+		Harl(void);
+		~Harl(void);
 		void complain(std::string level);
 };
 typedef struct s_level

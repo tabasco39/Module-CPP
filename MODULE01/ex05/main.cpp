@@ -8,5 +8,5 @@ int main(void)
     obj.complain("warning");
     obj.complain("error");
     obj.complain("test");
-    return (EXIT_SUCCESS);
+    return (0);
 }

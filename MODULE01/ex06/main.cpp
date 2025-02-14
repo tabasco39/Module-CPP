@@ -7,8 +7,8 @@ int main(int argc, char **argv)
     if (argc != 2)
     {
         std::cout << "[The number of the arguments must be one]" << std::endl;
-        return (EXIT_FAILURE);
+        return (1);
     }
     harl_instance.complain(argv[1]);
-    return (EXIT_SUCCESS);
+    return (0);
 }

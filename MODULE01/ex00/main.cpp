@@ -5,23 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aranaivo <aranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 07:28:56 by aranaivo          #+#    #+#             */
-/*   Updated: 2025/02/13 07:28:58 by aranaivo         ###   ########.fr       */
+/*   Created: 2025/02/13 06:51:12 by aranaivo          #+#    #+#             */
+/*   Updated: 2025/02/14 09:25:42 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./Zombie.hpp"
 
-#include "Zombie.hpp"
-
-int main(void)
+int main (void)
 {
-    Zombie *zombies;
-    int     N;
+    Zombie zmb("test");
+    zmb.announce();
 
-    N = 4;
-    zombies = zombieHorde(N, "test");
-    for (int i = 0; i < N; i++)
-        zombies[i].announce();
-    delete[] zombies;
-    return (0); 
+    Zombie *new_zmb = newZombie("new zombie"); 
+    new_zmb->announce();
+
+    randomChump("random chump");
+    delete(new_zmb);
+    return (0);
 }

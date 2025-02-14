@@ -1,21 +1,25 @@
 #include "Harl.hpp"
 
-void Harl::debug(void)
+Harl::Harl(void){}
+
+Harl::~Harl(void){}
+
+void Harl::_debug(void)
 {
     std::cout << "[DEBUG]" << std::endl << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger." << std::endl << "I really do!" << std::endl;
 }
 
-void Harl::info(void)
+void Harl::_info(void)
 {
     std::cout << "[INFO]" << std::endl << "I cannot believe adding extra bacon costs more money." << std::endl << "You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
-void Harl::warning(void)
+void Harl::_warning(void)
 {
     std::cout << "[WARNING]" << std::endl << "I think I deserve to have some extra bacon for free." << std::endl << "I’ve been coming for years whereas you started working here since last month." << std::endl;
 }
 
-void Harl::error(void)
+void Harl::_error(void)
 {
     std::cout << "[ERROR]" << std::endl << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
@@ -27,10 +31,10 @@ void Harl::complain(std::string level)
     start_level = -1;
 
     t_level tab_level[4] = {
-        { "DEBUG" , &Harl::debug },
-        { "INFO" , &Harl::info },
-        { "WARNING" , &Harl::warning },
-        { "ERROR" , &Harl::error },
+        { "DEBUG" , &Harl::_debug },
+        { "INFO" , &Harl::_info },
+        { "WARNING" , &Harl::_warning },
+        { "ERROR" , &Harl::_error },
     };
     for (int i = 0; i <= 3; i++)
     {

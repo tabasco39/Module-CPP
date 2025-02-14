@@ -11,17 +11,18 @@ class CopyFile
 {
     public :
         CopyFile(std::string filename, std::string s1, std::string s2);
+        ~CopyFile(void);
         void getFileContent();
         void setAllContent(std::string str);
         void setNewContent(std::string str);
         void copyingToNewFile();
         
     private :
-        std::string s1;
-        std::string s2;
-        std::string fileContent;
-        std::string filename;
-        std::string newContent;
+        std::string _s1;
+        std::string _s2;
+        std::string _fileContent;
+        std::string _filename;
+        std::string _newContent;
 };
 std::string replacingWord(std::string &str , std::string &s1, std::string &s2);
 

@@ -1,25 +1,28 @@
 #include "CopyFile.hpp"
 
-CopyFile::CopyFile(std::string _filename, std::string _s1, std::string _s2)
+CopyFile::CopyFile(std::string filename, std::string s1, std::string s2)
 {
-    filename = _filename;
-    s1       = _s1;
-    s2       = _s2;
+    _filename = filename;
+    _s1       = s1;
+    _s2       = s2;
+    _newContent = "";
 }
+CopyFile::~CopyFile(void)
+{}
 
 void CopyFile::setAllContent(std::string str)
 {
-    fileContent += str;
+    _fileContent += str;
 }
 
 void CopyFile::setNewContent(std::string str)
 {
-    newContent = str;
+    _newContent = str;
 }
 
 void CopyFile::getFileContent()
 {
-    std::ifstream   inputFile(filename.c_str());
+    std::ifstream   inputFile(_filename.c_str());
     std::string     line;
 
     if (inputFile.is_open())
@@ -27,7 +30,8 @@ void CopyFile::getFileContent()
         while (std::getline(inputFile , line))
         {
             setAllContent(line);
-            setAllContent("\n");
+            if (!inputFile.eof())
+                setAllContent("\n");
         }
         inputFile.close();
     }
@@ -42,11 +46,11 @@ void CopyFile::copyingToNewFile()
 {
     std::string newFile;
 
-    newFile = filename;
+    newFile = _filename;
     newFile += ".replace";
     std::ofstream outputFile(newFile.c_str());
 
-    setNewContent(replacingWord(fileContent, s1, s2));
+    setNewContent(replacingWord(_fileContent, _s1, _s2));
     if (outputFile.is_open())
-        outputFile << newContent;
+        outputFile << _newContent;
 }

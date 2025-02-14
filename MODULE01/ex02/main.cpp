@@ -6,7 +6,7 @@
 /*   By: aranaivo <aranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 09:57:43 by aranaivo          #+#    #+#             */
-/*   Updated: 2024/12/27 10:19:20 by aranaivo         ###   ########.fr       */
+/*   Updated: 2025/02/13 07:41:39 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ int main(void)
     std::cout << "value pointed by stringPTR : " << *stringPTR << std::endl;
     std::cout << "value pointed by stringREF : " << stringREF << std::endl;
 
-    return (EXIT_SUCCESS);
+    return (0);
 }
