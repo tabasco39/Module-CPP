@@ -1,23 +1,23 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-    hit            = 100;
-    energy         = 50;
-    attack_dammage = 20;
+    _hit            = 100;
+    _energy         = 50;
+    _attack_dammage = 20;
     std::cout << "Constructor with parameter of SCAVTRAP called" << std::endl;
 }
 
-ScavTrap::ScavTrap(void)
+ScavTrap::ScavTrap(void) : ClapTrap()
 {
-    hit            = 100;
-    energy         = 50;
-    attack_dammage = 20;
+    _hit            = 100;
+    _energy         = 50;
+    _attack_dammage = 20;
     std::cout << "Default constructor of SCAVTRAP called" << std::endl;
 
 }
 
-ScavTrap::ScavTrap(ScavTrap& obj)
+ScavTrap::ScavTrap(ScavTrap& obj) : ClapTrap(obj)
 {
     *this = obj;
     std::cout << "Copied constructor of SCAVTRAP called" << std::endl;
@@ -25,10 +25,13 @@ ScavTrap::ScavTrap(ScavTrap& obj)
 
 ScavTrap ScavTrap::operator=(ScavTrap& obj)
 {
-    this->name           = obj.name;
-    this->hit            = obj.hit;
-    this->energy         = obj.energy;
-    this->attack_dammage = obj.attack_dammage;
+    if (this != &obj)
+    {
+        _name           = obj._name;
+        _hit            = obj._hit;
+        _energy         = obj._energy;
+        _attack_dammage = obj._attack_dammage;
+    }
     return (*this);
 }
 
@@ -44,14 +47,14 @@ void ScavTrap::guardGate()
 
 void ScavTrap::attack(const std::string& target)
 {
-    if (energy > 0 || hit > 0)
+    if (_energy > 0 || _hit > 0)
     {
-        std::cout << "ScavTrap " << name << " attacks ";
-        std::cout << target << ", causing " << attack_dammage << " points of dammage" << std::endl;
-        energy-- ;
+        std::cout << "ScavTrap " << _name << " attacks ";
+        std::cout << target << ", causing " << _attack_dammage << " points of dammage" << std::endl;
+        _energy-- ;
     }
     else
     {
-        std::cout << "Sorry, You have not enougth energy to attack" << std::endl;
+        std::cout << "Sorry, You have not enougth _energy to attack" << std::endl;
     }
 }

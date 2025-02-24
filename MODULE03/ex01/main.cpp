@@ -4,13 +4,10 @@
 
 int main() {
     ClapTrap clap("CLAP1");
-    ScavTrap scav("SCAV");
-
+    ScavTrap scav;
 
     clap.attack("CLAP2");
     clap.takeDamage(5);
-    std::cout << "CLAP HIT ==> " << clap.get_hit() << std::endl;
-    std::cout << "SCAV HIT ==> " << scav.get_hit() << std::endl;
     clap.beRepaired(3);
     
     scav.attack("CLAP2");

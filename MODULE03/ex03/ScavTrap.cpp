@@ -14,6 +14,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
     _energy         = 50;
     _attack_dammage = 20;
     std::cout << "Default constructor of SCAVTRAP called" << std::endl;
+
 }
 
 ScavTrap::ScavTrap(ScavTrap& obj) : ClapTrap(obj)
@@ -26,10 +27,10 @@ ScavTrap ScavTrap::operator=(ScavTrap& obj)
 {
     if (this != &obj)
     {
-        _name           = obj._name;
-        _hit            = obj._hit;
-        _energy         = obj._energy;
-        _attack_dammage = obj._attack_dammage;
+        this->_name           = obj._name;
+        this->_hit            = obj._hit;
+        this->_energy         = obj._energy;
+        this->_attack_dammage = obj._attack_dammage;
     }
     return (*this);
 }
@@ -54,6 +55,6 @@ void ScavTrap::attack(const std::string& target)
     }
     else
     {
-        std::cout << "Sorry, You have not enougth energy to attack" << std::endl;
+        std::cout << "Sorry, You have not enougth _energy to attack" << std::endl;
     }
 }

@@ -2,11 +2,11 @@
 
 void ClapTrap::attack(const std::string& target)
 {
-    if (energy > 0 || hit > 0)
+    if (_energy > 0 || _hit > 0)
     {
-        std::cout << "ClapTrap " << name << " attacks ";
-        std::cout << target << ", causing " << attack_dammage << " points of dammage" << std::endl;
-        energy-- ;
+        std::cout << "ClapTrap " << _name << " attacks ";
+        std::cout << target << ", causing " << _attack_dammage << " points of dammage" << std::endl;
+        _energy-- ;
     }
     else
     {
@@ -18,16 +18,16 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
     std::cout << "Booommmm (%#*) !!!!";
     std::cout << " You loose " << amount << " hit point" << std::endl;
-    hit -= amount;
+    _hit -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (energy > 0 || hit > 0)
+    if (_energy > 0 || _hit > 0)
     {
-        energy--;
+        _energy--;
         std::cout << "Gooodddd!!!  You got " << amount << " energy" << std::endl;
-        hit += amount;
+        _hit += amount;
     }
      else
     {
@@ -37,18 +37,19 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::ClapTrap()
 {
-    hit = 10;
-    energy = 10;
-    attack_dammage = 0;
+    _name = "foo";
+    _hit = 10;
+    _energy = 10;
+    _attack_dammage = 0;
     std::cout << "Default constructor of CLAPTRAP called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string _name) : 
-    name(_name)
+ClapTrap::ClapTrap(std::string name) : 
+    _name(name)
 {
-    hit = 10;
-    energy = 10;
-    attack_dammage = 0;
+    _hit = 10;
+    _energy = 10;
+    _attack_dammage = 0;
     std::cout << "Constructor with parameter of CLAPTRAP called" << std::endl;
 }
 
@@ -60,14 +61,17 @@ ClapTrap::ClapTrap(ClapTrap& obj)
 
 ClapTrap ClapTrap::operator=(ClapTrap& obj)
 {
-    this->name           = obj.name;
-    this->hit            = obj.hit;
-    this->energy         = obj.energy;
-    this->attack_dammage = obj.attack_dammage;
+    if (this != &obj)
+    {
+        _name           = obj._name;
+        _hit            = obj._hit;
+        _energy         = obj._energy;
+        _attack_dammage = obj._attack_dammage;
+    }
     return (*this);
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "Destructor CLAPTRAP called" << std::endl;
 }

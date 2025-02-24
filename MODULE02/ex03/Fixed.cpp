@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aranaivo <aranaivo@student.42antananari    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/20 08:19:59 by aranaivo          #+#    #+#             */
+/*   Updated: 2025/02/20 08:20:00 by aranaivo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+
 #include "Fixed.hpp"
 
-//const int bit = 8;
 
 Fixed::Fixed(void)
 {
-    fixed_value = 0;
+    _fixed_value = 0;
 }
 
 Fixed::Fixed(const Fixed &obj)
@@ -13,23 +26,23 @@ Fixed::Fixed(const Fixed &obj)
 }
 Fixed::Fixed(const int value)
 {
-    fixed_value = value * (1 << bit);
+    _fixed_value = value * (1 << _bit);
 
 }
 
 Fixed::Fixed(const float value)
 {
-    fixed_value =  roundf(value * (1 << bit));
+    _fixed_value =  roundf(value * (1 << _bit));
 }
 
 float Fixed::toFloat(void) const
 {
-    return ((float)fixed_value / (1 << bit));
+    return ((float)_fixed_value / (1 << _bit));
 }
 
 int Fixed::toInt(void) const
 {
-    return (fixed_value / (1 << bit));
+    return (_fixed_value / (1 << _bit));
 }
 
 Fixed::~Fixed(void)
@@ -38,17 +51,17 @@ Fixed::~Fixed(void)
 
 void Fixed::setFixedValue(float nb)
 {
-    fixed_value = nb;
+    _fixed_value = nb;
 }
 
 int Fixed::getRawBits(void)const
 {
-    return fixed_value;
+    return _fixed_value;
 }
 
 void    Fixed::setRawBits(int const raw)
 {
-    fixed_value = raw;
+    _fixed_value = raw;
 }
 
 std::ostream& operator<<(std::ostream &os, const Fixed& obj)
@@ -59,38 +72,39 @@ std::ostream& operator<<(std::ostream &os, const Fixed& obj)
 
 Fixed& Fixed::operator=(Fixed const &obj)
 {
-    this->fixed_value = obj.fixed_value;
+    if (this != &obj)
+        this->_fixed_value = obj._fixed_value;
     return (*this);
 }
 
 bool Fixed::operator<(Fixed const &obj)
 {
-    return (this->fixed_value < obj.fixed_value) ? true : false;
+    return (this->_fixed_value < obj._fixed_value) ? true : false;
 }
 
 bool Fixed::operator>(Fixed const &obj)
 {
-    return (this->fixed_value > obj.fixed_value) ? true : false;
+    return (this->_fixed_value > obj._fixed_value) ? true : false;
 }
 
 bool Fixed::operator>=(Fixed const &obj)
 {
-    return (this->fixed_value >= obj.fixed_value) ? true : false;
+    return (this->_fixed_value >= obj._fixed_value) ? true : false;
 }
 
 bool Fixed::operator<=(Fixed const &obj)
 {
-    return (this->fixed_value <= obj.fixed_value) ? true : false;
+    return (this->_fixed_value <= obj._fixed_value) ? true : false;
 }
 
 bool Fixed::operator==(Fixed const &obj)
 {
-    return (this->fixed_value == obj.fixed_value) ? true : false;
+    return (this->_fixed_value == obj._fixed_value) ? true : false;
 }
 
 bool Fixed::operator!=(Fixed const &obj)
 {
-    return (this->fixed_value != obj.fixed_value) ? true : false;
+    return (this->_fixed_value != obj._fixed_value) ? true : false;
 }
 
 Fixed Fixed::operator+(Fixed const &obj)
@@ -115,7 +129,7 @@ Fixed Fixed::operator/(Fixed const &obj)
 
 Fixed& Fixed::operator++()
 {
-    ++fixed_value;
+    ++_fixed_value;
     return (*this);
 }
 
@@ -124,7 +138,7 @@ Fixed Fixed::operator++(int)
     Fixed tmp;
 
     tmp = *this;
-    ++fixed_value;
+    ++_fixed_value;
     return (tmp);
 }
 

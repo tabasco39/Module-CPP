@@ -26,10 +26,10 @@ FragTrap FragTrap::operator=(FragTrap& obj)
 {
     if (this != &obj)
     {
-        _name           = obj._name;
-        _hit            = obj._hit;
-        _energy         = obj._energy;
-        _attack_dammage = obj._attack_dammage;
+        this->_name           = obj._name;
+        this->_hit            = obj._hit;
+        this->_energy         = obj._energy;
+        this->_attack_dammage = obj._attack_dammage;
     }
     return (*this);
 }

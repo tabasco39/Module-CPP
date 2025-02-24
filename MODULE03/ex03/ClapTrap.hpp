@@ -8,13 +8,13 @@
 class ClapTrap
 {
     protected:
-        int             energy;
-        int             hit;
-        std::string     name;
-        unsigned int    attack_dammage;
+        int             _energy;
+        int             _hit;
+        std::string     _name;
+        unsigned int    _attack_dammage;
     public:
         ClapTrap(void);
-        ClapTrap(std::string name);
+        ClapTrap(std::string _name);
         ClapTrap(ClapTrap& obj);
         ClapTrap operator=(ClapTrap& obj);
         ~ClapTrap();
