@@ -2,24 +2,34 @@
 
 Cat::Cat()
 {
+    brain = new Brain;
     type = "Cat";
     std::cout << "Default constructor of cat called" << std::endl;
 }
 
 Cat::Cat(Cat& obj)
 {
-    *this = obj;
+    brain = new Brain;
+    brain = obj.brain;
+    type = obj.type;
     std::cout << "Copied constructor of cat called" << std::endl;
 }
 
 Cat& Cat::operator=(Cat& obj)
 {
-    this->type = obj.type;
+    if (this != &obj)
+    {
+        delete brain;
+        brain = new Brain;
+        brain = obj.brain;
+        type = obj.type;
+    }
     return(*this);
 }
 
 Cat::~Cat()
 {
+    delete brain;
     std::cout << "Destructor of cat called" << std::endl;
 }
 

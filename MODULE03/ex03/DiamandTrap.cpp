@@ -18,7 +18,7 @@ DiamandTrap::DiamandTrap(std::string name) : ClapTrap(name + "_clap_name")
     std::cout << "Constructor with parameter of DIAMANDTRAP called" << std::endl;
 }
 
-DiamandTrap DiamandTrap::operator=(DiamandTrap& obj)
+DiamandTrap DiamandTrap::operator=(const DiamandTrap& obj)
 {
     if (this != &obj)
     {
@@ -30,7 +30,7 @@ DiamandTrap DiamandTrap::operator=(DiamandTrap& obj)
     return (*this);
 }
 
-DiamandTrap::DiamandTrap(DiamandTrap& obj) : ClapTrap(obj), ScavTrap(obj), FragTrap(obj)
+DiamandTrap::DiamandTrap(const DiamandTrap& obj)
 {
     *this = obj;
     std::cout << "Copied constructor of DIAMANDTRAP called" << std::endl;

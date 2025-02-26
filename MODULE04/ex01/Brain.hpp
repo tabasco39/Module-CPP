@@ -3,13 +3,18 @@
 
 #pragma once
 #include <string>
+#include <iostream>
+#include <cstring>
 
 class Brain
 {
 private:
-    /* data */
+    std::string _ideas[100];
 public:
-    Brain(/* args */);
+    Brain();
+    Brain(Brain const &obj);
+    Brain &operator=(Brain const &obj);
+    
     ~Brain();
 };
 

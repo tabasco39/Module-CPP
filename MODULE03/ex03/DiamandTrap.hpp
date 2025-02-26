@@ -11,8 +11,8 @@ class DiamandTrap : public ScavTrap , public FragTrap
     public:
         DiamandTrap(void);
         DiamandTrap(std::string name);
-        DiamandTrap(DiamandTrap& obj);
-        DiamandTrap operator=(DiamandTrap& obj);
+        DiamandTrap(const DiamandTrap& obj);
+        DiamandTrap operator=(const DiamandTrap& obj);
         ~DiamandTrap();
         void attack(const std::string& name);
         void whoAmI();

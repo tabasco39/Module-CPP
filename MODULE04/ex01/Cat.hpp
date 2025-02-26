@@ -1,17 +1,19 @@
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#pragma once
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
+    private:
+        Brain *brain;
     public:
         Cat(void);
         Cat(Cat& obj);
         Cat& operator=(Cat& obj);
         ~Cat();
-        void makeSound(void) const override;
+        virtual void makeSound(void) const;
 };
 
 
