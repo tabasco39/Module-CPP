@@ -15,6 +15,7 @@ Dog::Dog(Dog& obj)
 
 Dog& Dog::operator=(Dog& obj)
 {
+    std::cout << "iciiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\n";
     this->type = obj.type;
     return (*this);
 }

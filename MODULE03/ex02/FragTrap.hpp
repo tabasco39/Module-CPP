@@ -4,7 +4,7 @@
 #include "ClapTrap.hpp"
 #pragma once
 
-class FragTrap : virtual public ClapTrap
+class FragTrap :  public ClapTrap
 {
     private:
         /* data */

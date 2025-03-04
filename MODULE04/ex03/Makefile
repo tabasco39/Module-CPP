@@ -1,12 +1,9 @@
-NAME = brain
+NAME = abstract
 
 SRC = main.cpp\
-	  Animal.cpp\
-	  Dog.cpp\
-	  Cat.cpp\
-	  Brain.cpp\
-	  WrongAnimal.cpp\
-	  WrongCat.cpp
+	  AMateria.cpp\
+	  IMateria.cpp\
+
 
 OBJ = $(SRC:.cpp=.o)
 
