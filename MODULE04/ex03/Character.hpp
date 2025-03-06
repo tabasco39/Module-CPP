@@ -6,7 +6,7 @@
 /*   By: aranaivo <aranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 08:20:54 by aranaivo          #+#    #+#             */
-/*   Updated: 2025/03/04 08:42:54 by aranaivo         ###   ########.fr       */
+/*   Updated: 2025/03/06 09:57:15 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 #define CHARACTER_HPP
 
 #include "ICharacter.hpp"
+#pragma once
 
 class Character : public ICharacter
 {
+    private :
+        std::string name;
+        AMateria *stock[4];
+
     public:
         Character(void);
+        Character(std::string name);
         Character(Character & obj);
         Character & operator=(Character & obj);
         std::string const & getName() const;
         void equip(AMateria* m);
-        void unequip(int idx) = 0;
+        void unequip(int idx);
         void use(int idx, ICharacter& target);
         ~Character(void);
 
