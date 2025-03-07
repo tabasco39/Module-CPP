@@ -6,7 +6,7 @@
 /*   By: aranaivo <aranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 08:20:54 by aranaivo          #+#    #+#             */
-/*   Updated: 2025/03/06 09:57:15 by aranaivo         ###   ########.fr       */
+/*   Updated: 2025/03/07 08:17:25 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Character : public ICharacter
         void equip(AMateria* m);
         void unequip(int idx);
         void use(int idx, ICharacter& target);
+        void displayStock();
         ~Character(void);
 
 };
